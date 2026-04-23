@@ -1,0 +1,20 @@
+# Report Generator Skill
+
+A specialized skill for generating professional reports from processed results.
+
+## Description
+This skill formats processed search results into an attractive, readable report suitable for delivery via WeChat.
+
+## Configuration
+- report_format: customizable template
+- image_inclusion: enabled
+- emoji_usage: enabled
+- detail_enrichment: enabled
+- historical_storage: enabled
+
+## Functions
+- format_report: Applies report template to results
+- enrich_details: Adds additional details to select results
+- validate_report: Ensures report meets quality standards
+- deliver_report: Sends report to designated channel
+- store_historical_report: Saves report for future reference

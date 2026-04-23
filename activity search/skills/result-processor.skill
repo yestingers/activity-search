@@ -1,0 +1,19 @@
+# Result Processor Skill
+
+A specialized skill for processing and evaluating search results.
+
+## Description
+This skill handles the filtering, deduplication, and value assessment of search results from multiple sources.
+
+## Configuration
+- deduplication_threshold: 0.8 (similarity percentage)
+- minimum_relevance_score: 3.0
+- value_assessment_weights: customizable
+- result_ranking: enabled
+
+## Functions
+- filter_results: Removes invalid or low-quality results
+- deduplicate_results: Removes duplicate entries across sources
+- assess_value: Evaluates the value of each result to the user
+- rank_results: Ranks results based on relevance and value
+- compile_report_ready_results: Prepares top results for reporting

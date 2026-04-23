@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "drone-activity-tracker",
+      "name": "无人机活动追踪",
+      "description": "每日追踪无人机领域专业活动：学术会议、行业展会、技术竞赛等（重点关注）",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *",
+        "tz": "Asia/Shanghai"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请执行无人机活动追踪任务，按照以下步骤调用相关技能：\n\n## 第一步：通用搜索\n\n调用 search-engine 技能执行 universal_search 方法，使用 searxng 在 bing、baidu、sogou、360search 引擎上进行普遍搜索，搜索结果存入搜索结果库1（universal_search_results）。\n\n## 第二步：定向抓取\n\n调用 search-engine 技能执行 targeted_fetch 方法，对专业站点列表使用关键词进行定向抓取，结果存入搜索结果库2（targeted_fetch_results）。\n\n## 第三步：结果处理\n\n调用 result-processor 技能执行 compile_report_ready_results 方法，提取两个搜索结果库的内容，去除重复无效结果，对剩余结果进行价值评估，挑选出最有用的若干结果，存入结果汇报库（report_ready_results）。\n\n## 第四步：报告生成与发送\n\n调用 report-generator 技能执行 generate_and_deliver_report 方法，对结果汇报库中的结果按照设定模板处理，格式化为美观易读的报告，通过 openclaw-weixin 渠道发送给 3bd6edc5c6f1-im-bot 用户，并将报告副本存入历史库。",
+        "model": "dashscope-coding/qwen3.5-plus",
+        "timeoutSeconds": 1200,
+        "thinking": "high"
+      },
+      "sessionTarget": "isolated",
+      "delivery": {
+        "mode": "announce",
+        "channel": "openclaw-weixin",
+        "to": "3bd6edc5c6f1-im-bot",
+        "bestEffort": true
+      },
+      "enabled": true,
+      "deleteAfterRun": false,
+      "wakeMode": "now",
+      "state": {
+        "nextRunAtMs": 0
+      },
+      "updatedAtMs": 0
+    }
+  ]
+}

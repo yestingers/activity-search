@@ -1,0 +1,18 @@
+# Search Engine Skill
+
+A specialized skill for searching drone-related professional activities using multiple search methods.
+
+## Description
+This skill orchestrates the search process using both SearxNG for broad searches and WebFetch for targeted scraping from professional sites.
+
+## Configuration
+- search_timeout: 600 seconds
+- max_results_per_source: 20
+- deduplication: enabled
+- result_storage: enabled
+
+## Functions
+- universal_search: Performs broad search using SearxNG across multiple engines
+- targeted_fetch: Performs targeted scraping from professional sites
+- store_results: Stores search results in designated databases
+- get_search_stats: Returns statistics about recent searches
